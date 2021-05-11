@@ -1,0 +1,207 @@
+@media only screen and (max-width: 1200px){
+
+}
+
+@media only screen and (max-width: 1024px){
+.nav-tabs>li>a {
+    font-size: 14px;
+}
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px){
+.nav-tabs>li>a {
+    font-size: 10px;
+    font-weight: 600;
+}
+
+.navbar-nav>li>a, 
+.sub-menu li a {
+    font-size: 14px;
+    padding: 15px 9px;
+}
+
+.chitwan-news-slider fig {
+    height: 300px;
+}
+
+.tourism-news-image fig {
+    height: 130px;
+}
+
+.agriculture-news-image fig {
+    height: 65px;
+}
+
+.education-news-wrapper {
+    margin-bottom: 20px;
+}
+
+.entertainmnet-news-slider fig {
+    height: 350px;
+}
+
+.entertainmenet-news-list fig {
+    height: 160px;
+}
+
+.entertainmnet-news-slider h3 {
+    font-size: 16px;
+}
+
+.entertainmenet-news-list h3 {
+    font-size: 12px;
+    padding: 5px;
+}
+
+}
+
+@media only screen and (max-width: 767px){
+.navbar-brand {
+    float: none;
+    margin: 0 auto;
+    width: 50%;
+}
+
+.navbar-brand img {
+	width: 100%;
+}
+
+.navbar-header {
+	margin: 0 !important;
+}
+
+.navbar-toggle {
+    border: 1px solid #fff;
+    float: left;
+    margin-left: 15px;
+}
+
+.navbar-toggle .icon-bar {
+	border: 1px solid #fff;
+}
+
+.navbar-nav {
+    margin: 7.5px 0px;
+}
+
+.trending {
+    display: none;
+}
+
+.news-category-slider fig, 
+.chitwan-news-slider fig {
+    height: 400px;
+}
+
+.news-catagory,
+.chitwan-news-catagory,
+.chitwan-news-list,
+.agriculture-news-list,
+.tourism-news-list {
+    margin-bottom: 30px;
+}
+
+.top-news-image {
+    height: 130px;
+}
+
+.agriculture-news-image fig {
+    height: 150px;
+}
+
+.education-news-image fig {
+    height: 180px;
+}
+
+.video-list-wrapper {
+    margin-top: 30px;
+}
+
+.education-news-wrapper,
+.entertainmnet-news {
+    margin-bottom: 30px;
+}
+
+.entertainmenet-news-list fig {
+    height: 250px;
+}
+
+.footer-content {
+    margin-bottom: 30px;
+    overflow: auto;
+}
+
+}
+
+@media only screen and (max-width: 640px){
+.agriculture-news-image fig {
+    height: 130px;
+}
+}
+
+@media only screen and (max-width: 480px){
+.section-title {
+    width: 100%;
+}
+
+#model-gallery-carousel li {
+    width: 220px !important;
+}
+
+.entertainmnet-news-slider fig {
+    height: 350px;
+}
+
+.entertainmenet-news-list fig {
+    height: 200px;
+}
+
+.entertainmenet-news-list h3 {
+    font-size: 12px;
+    padding: 5px;
+}
+
+.entertainmnet-news-slider h3 {
+    font-size: 16px;
+}
+
+}
+
+@media only screen and (max-width: 360px){
+.news-category-slider fig, 
+.chitwan-news-slider fig {
+    height: 300px;
+}
+
+.top-news-image,
+.tourism-news-image fig,
+.agriculture-news-image fig,
+.video-list-img {
+    height: 100px;
+}
+
+.education-news-image fig {
+    height: 130px;
+}
+
+.video-frame {
+    height: 300px;
+}
+
+#model-gallery-carousel li {
+    width: 330px !important;
+}
+
+.entertainmnet-news-slider fig {
+    height: 300px;
+}
+
+.entertainmenet-news-list fig {
+    height: 150px;
+}
+
+}
+
+@media only screen and (max-width: 320px){
+
+}
