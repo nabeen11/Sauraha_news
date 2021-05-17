@@ -1,17 +1,13 @@
 @font-face {
     font-family: 'Mangal-Regular';
-    src: url('../fonts/Mangal-Regular.eot') format('embedded-opentype'),
-       url('../fonts/Mangal-Regular.woff') format('woff'),
-       url('../fonts/Mangal-Regular.ttf')  format('truetype'),
-       url('../fonts/Mangal-Regular.svg#Mangal-Regular') format('svg');
+    src: url('../fonts/Mangal-Regular.eot') format('embedded-opentype'), url('../fonts/Mangal-Regular.woff') format('woff'), url('../fonts/Mangal-Regular.ttf') format('truetype'), url('../fonts/Mangal-Regular.svg#Mangal-Regular') format('svg');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'mangalbold';
-    src: url('../fonts/mangal_bold-webfont.woff2') format('woff2'),
-         url('../fonts/mangal_bold-webfont.woff') format('woff');
+    src: url('../fonts/mangal_bold-webfont.woff2') format('woff2'), url('../fonts/mangal_bold-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }
@@ -46,7 +42,12 @@ a:hover {
     -ms-transition: 0.4s all ease-in-out;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     margin-top: 0;
 }
 
@@ -101,7 +102,7 @@ header .container,
 }
 
 .nav>li>a:focus,
-.nav>li>a.active, 
+.nav>li>a.active,
 .nav>li>a:hover {
     background: #00695c;
 }
@@ -248,7 +249,7 @@ header .container,
     left: 0;
     line-height: 16px;
     padding: 8px 12px;
-    position: absolute; 
+    position: absolute;
 }
 
 .nav-tabs {
@@ -275,8 +276,8 @@ header .container,
     text-align: center;
 }
 
-.nav-tabs>li.active>a, 
-.nav-tabs>li.active>a:focus, 
+.nav-tabs>li.active>a,
+.nav-tabs>li.active>a:focus,
 .nav-tabs>li.active>a:hover {
     background: #00897b;
     border: none;
@@ -314,7 +315,7 @@ header .container,
 
 .top-news-info h3 a:hover,
 .chitwan-news-list ul li a:hover,
-.video-section h3 a:hover, 
+.video-section h3 a:hover,
 .video-list-content h3 a:hover {
     color: #f26522;
 }
@@ -385,7 +386,7 @@ header .container,
     left: 0;
     padding: 10px;
     position: absolute;
-    width: 100%;  
+    width: 100%;
 }
 
 .title h3 {
@@ -809,7 +810,9 @@ header .container,
     color: #ffffff;
 }
 
+
 /*------ news-listing ------*/
+
 .news-listing-wrapper .section-title,
 .single-news-wrapper .section-title {
     width: 100%;
@@ -866,7 +869,3 @@ header .container,
     height: 500px;
     margin-bottom: 15px;
 }
-
-
-
-

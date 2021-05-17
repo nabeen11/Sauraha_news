@@ -21,7 +21,6 @@ get_header(); ?>
         </div>
     </div>
 </section>
-
 <section class="top-news-wrapper">
     <div class="container">
         <?php
@@ -49,6 +48,9 @@ get_header(); ?>
         } ?>
         <div class="tow-news-inner">
             <div class="row">
+                <?php
+                $terms = get_terms(array('taxonomy' => 'newscategory'));
+                ?>
                 <div class="col-md-5 col-sm-5 col-xs-12">
                     <!-- news-category start -->
                     <?php
@@ -61,20 +63,20 @@ get_header(); ?>
                                 'compare' => '='
                             )
                         )
+
                     );
                     $the_query = new WP_Query($args);
                     if ($the_query->have_posts()) {
-
-
                     ?>
                         <div class="news-catagory">
                             <ul id="news-category-slider" class="news-category-slider">
                                 <?php
                                 while ($the_query->have_posts()) {
-                                    $the_query->the_post()
+                                    $the_query->the_post();
                                 ?>
                                     <li>
-                                        <fig style="background-image: url('<?php echo get_the_post_thumbnail_url(get_the_ID()) ?>')"><a href="#" class="category">News Category</a></fig>
+                                        <fig style="background-image: url('<?php echo get_the_post_thumbnail_url(get_the_ID()) ?>')"><?php get_single_news_post_term(); ?>
+                                        </fig>
                                         <figcaption>
                                             <h2><a href="<?php the_permalink(); ?>"><?php echo get_the_title(); ?></a></h2>
                                             <div class="date-wrapper">
@@ -86,8 +88,10 @@ get_header(); ?>
                                 <?php } ?>
                             </ul>
                         </div><!-- news-category close -->
-                    <?php } ?>
+                    <?php }
+                    ?>
                 </div>
+
                 <?php
                 $terms = get_terms(array('taxonomy' => 'newscategory', 'meta_key' => '_show_to_tab', 'meta_value' => 1));
                 ?>
@@ -173,6 +177,7 @@ $terms = get_terms(array('taxonomy' => 'newscategory', 'meta_key' => '_first_new
 <section class="chitwan-news-wrapper">
     <div class="container">
         <?php
+
         foreach ($terms as $term) {
         ?>
             <div class="section-title">
@@ -185,7 +190,7 @@ $terms = get_terms(array('taxonomy' => 'newscategory', 'meta_key' => '_first_new
                         <div class="chitwan-news-catagory">
                             <ul id="chitwan-news-slider" class="chitwan-news-slider">
                                 <?php $args = array(
-                                    'post_type' => 'news', 'posts_per_page' => 7,
+                                    'post_type' => 'news', 'posts_per_page' => 12,
                                     'tax_query' => array(
                                         array(
                                             'taxonomy' => 'newscategory',
@@ -195,19 +200,32 @@ $terms = get_terms(array('taxonomy' => 'newscategory', 'meta_key' => '_first_new
                                     )
                                 );
                                 $the_query = new WP_Query($args);
+                                $counter = 0;
                                 while ($the_query->have_posts()) {
                                     $the_query->the_post();
+                                    // if($counter <2){
+
+
                                 ?>
                                     <li>
                                         <fig style="background-image: url('<?php echo get_the_post_thumbnail_url(get_the_ID()); ?>');"></fig>
                                         <div class="title">
                                             <h3><a href="<?php the_permalink(); ?>"><?php echo get_the_title(); ?></a></h3>
                                             <div class="date-wrapper">
-                                                <span><?php echo get_the_date(); ?> | <a href="#">Sauraha Reporter</a></span>
+                                                <span><?php echo get_the_date() ?> | <a href="#">Sauraha Reporter</a></span>
                                             </div>
                                         </div>
                                     </li>
-                                <?php } ?>
+                                <?php
+                                    if ($counter == 3) {
+                                        break;
+                                    }
+                                    $counter++;
+                                }
+
+                                //  }
+                                wp_reset_postdata();
+                                ?>
 
                             </ul>
                         </div>
@@ -216,8 +234,12 @@ $terms = get_terms(array('taxonomy' => 'newscategory', 'meta_key' => '_first_new
                         <div class="chitwan-news-list">
                             <ul>
                                 <?php
+                                // $counter = 3;
                                 while ($the_query->have_posts()) {
                                     $the_query->the_post();
+                                    // if($counter <10){
+
+
                                 ?>
                                     <li><a href="<?php the_permalink(); ?>"><?php echo get_the_title(); ?></a></li>
                                 <?php } ?>
@@ -845,51 +867,32 @@ $terms = get_terms(array('taxonomy' => 'newscategory', 'meta_key' => '_second_ne
         </div>
     </div>
 </section>
-
-<section class="photo-gallery">
-    <div class="container">
-        <div class="section-title">
-            <h2>फोटो-फिचर</h2>
-            <a href="#" class="see-all">सबै हेर्नुहोस</a>
+<?php
+$args = array('post_type' => 'gallery', 'posts_per_page' => 8);
+$the_query = new WP_Query($args);
+if ($the_query->have_posts()) {
+?>
+    <section class="photo-gallery">
+        <div class="container">
+            <div class="section-title">
+                <h2>फोटो-फिचर</h2>
+                <a href="<?php the_permalink(); ?>" class="see-all">सबै हेर्नुहोस</a>
+            </div>
+            <div class="model-gallery-wrapper">
+                <ul id="model-gallery-carousel" class="model-gallery-carousel">
+                    <?php while ($the_query->have_posts()) {
+                        $the_query->the_post();
+                    ?>
+                        <li>
+                            <fig style="background-image: url('<?php echo get_the_post_thumbnail_url(get_the_ID()); ?>');"></fig>
+                            <h3><a href="<?php the_permalink(); ?>"><?php echo get_the_title(); ?></a></h3>
+                        </li>
+                    <?php } ?>
+                </ul>
+            </div>
         </div>
-        <div class="model-gallery-wrapper">
-            <ul id="model-gallery-carousel" class="model-gallery-carousel">
-                <li>
-                    <fig style="background-image: url('<?php echo esc_url(get_template_directory_uri()); ?>/images/photo-feature-img1.jpg');"></fig>
-                    <h3><a href="#">अनौठो सौन्दर्य प्रतियोगिताः जब गाईहरु र्‍यापमा उत्रिए…</a></h3>
-                </li>
-                <li>
-                    <fig style="background-image: url('<?php echo esc_url(get_template_directory_uri()); ?>/images/photo-feature-img2.jpg');"></fig>
-                    <h3><a href="#">सीटी सेन्टरमा हिरोइनहरुको क्याटवाक</a></h3>
-                </li>
-                <li>
-                    <fig style="background-image: url('<?php echo esc_url(get_template_directory_uri()); ?>/images/photo-feature-img3.jpg');"></fig>
-                    <h3><a href="#">दीपक-दीपासँग सम्बन्ध विग्रिएको चर्चामा ‘धुर्मुस’को यस्तो स्पष्टिकरण</a></h3>
-                </li>
-                <li>
-                    <fig style="background-image: url('<?php echo esc_url(get_template_directory_uri()); ?>/images/photo-feature-img4.jpg');"></fig>
-                    <h3><a href="#">हलिउड फिल्ममा प्रियंकाको यस्तो हट अवतार</a></h3>
-                </li>
-                <li>
-                    <fig style="background-image: url('<?php echo esc_url(get_template_directory_uri()); ?>/images/photo-feature-img5.jpg');"></fig>
-                    <h3><a href="#">‘बाहुबली २’ को प्रदर्शन मिति तोकियो</a></h3>
-                </li>
-                <li>
-                    <fig style="background-image: url('<?php echo esc_url(get_template_directory_uri()); ?>/images/photo-feature-img6.jpg');"></fig>
-                    <h3><a href="#">पाँचौ पटकमा लियोनार्दोलाई ओस्कर</a></h3>
-                </li>
-                <li>
-                    <fig style="background-image: url('<?php echo esc_url(get_template_directory_uri()); ?>/images/photo-feature-img7.jpg');"></fig>
-                    <h3><a href="#">रीस्ता र सुरविनाले जेठमा ‘लुकामारी’ खेल्ने, सौगातको लुक्स लुकाइयो</a></h3>
-                </li>
-                <li>
-                    <fig style="background-image: url('<?php echo esc_url(get_template_directory_uri()); ?>/images/photo-feature-img8.jpg');"></fig>
-                    <h3><a href="#">स्टार शैलीः अस्करको रेड कार्पेटमा खुलेका सुन्दरी</a></h3>
-                </li>
-            </ul>
-        </div>
-    </div>
-</section>
+    </section>
+<?php } ?>
 <?php $terms = get_terms(array('taxonomy' => 'newscategory', 'meta_key' => '_twelveth_news_template', 'meta_value' => 1)); ?>
 <section class="entertainment-wrapper">
     <?php foreach ($terms as $term) {
@@ -933,17 +936,17 @@ $terms = get_terms(array('taxonomy' => 'newscategory', 'meta_key' => '_second_ne
                 <div class="col-md-6 col-sm-6 col-xs-12">
                     <div class="entertainment-news-list-wrapper">
                         <div class="row">
-                        <?php while ($the_query->have_posts()) {
+                            <?php while ($the_query->have_posts()) {
                                 $the_query->the_post();
-                             ?>
-                            <div class="col-md-6 col-sm-6 col-xs-6">
-                                <div class="entertainmenet-news-list">
-                                    <a href="<?php the_permalink(); ?>">
-                                        <fig style="background-image: url('<?php echo get_the_post_thumbnail_url(get_the_ID()); ?>');"></fig>
-                                    </a>
-                                    <h3><a href="<?php the_permalink(); ?>"><?php echo get_the_title(); ?></a></h3>
+                            ?>
+                                <div class="col-md-6 col-sm-6 col-xs-6">
+                                    <div class="entertainmenet-news-list">
+                                        <a href="<?php the_permalink(); ?>">
+                                            <fig style="background-image: url('<?php echo get_the_post_thumbnail_url(get_the_ID()); ?>');"></fig>
+                                        </a>
+                                        <h3><a href="<?php the_permalink(); ?>"><?php echo get_the_title(); ?></a></h3>
+                                    </div>
                                 </div>
-                            </div>
                             <?php } ?>
                         </div>
                     </div>
