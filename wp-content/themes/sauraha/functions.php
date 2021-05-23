@@ -153,6 +153,9 @@ function sauraha_scripts()
 	wp_enqueue_script('loadmore-sauraha', get_template_directory_uri() . '/js/loadmore.js', array(), _S_VERSION, true);
 	wp_localize_script('loadmore-sauraha', 'ajax_object', array('ajax_url' => admin_url('admin-ajax.php')));
 
+	wp_enqueue_script('archiveloadmore-sauraha', get_template_directory_uri() . '/js/archiveloadmore.js', array(), _S_VERSION, true);
+	wp_localize_script('archiveloadmore-sauraha', 'ajax_object', array('ajax_url' => admin_url('admin-ajax.php')));
+
 	if (is_singular() && comments_open() && get_option('thread_comments')) {
 		wp_enqueue_script('comment-reply');
 	}
@@ -185,8 +188,20 @@ require get_template_directory() . '/inc/news.php';
 //gallery added
 require get_template_directory() . '/inc/gallery.php';
 
+//Video added
+require get_template_directory() . '/inc/video.php';
+
+//Advertisement added
+require get_template_directory() . '/inc/ads.php';
+
 //nepali calender
 require get_template_directory() . '/inc/nep_calender.php';
+
+//archive load more
+require get_template_directory() . '/inc/archloadmore.php';
+
+//Theme Option
+require get_template_directory() . '/inc/theme_option.php';
 
 // include_once('nep_calendar.php');
 
@@ -230,36 +245,35 @@ function get_additional_featured_product_callback()
 	$title = (sanitize_post($_POST['title']));
 	$taxonomy = (sanitize_post($_POST['type']));
 	$tax_query = null;
-	// $return_value = array();
+	$tax_query = array('taxonomy' => $taxonomy, 'field' => 'name', 'terms' => $title);
+	$post_per_page = 3;
+	$return_value = array();
 
-		$tax_query = array('taxonomy' => $taxonomy, 'field' => 'name', 'terms' => $title );
+	// $post_content = apply_filters('the_content',
+	// wp_trim_words(get_the_content(),55,false));
 
-		$post_per_page = 3;
-		$return_value = array();
-
-		$args = array(
-			'post_type' => 'news',
-			'offset' => $offset,
-			'posts_per_page' => $post_per_page,
-			'tax_query' => array($tax_query),
+	$args = array(
+		'post_type' => 'news',
+		'offset' => $offset,
+		'posts_per_page' => $post_per_page,
+		'tax_query' => array($tax_query),
 	);
 	$the_query = new WP_Query($args);
 
-		$count = 1;
-		while ($the_query->have_posts()) {
-			$the_query->the_post();
-			$return_value[$count]['title']  = get_the_title();
-			$return_value[$count]['permalink'] = get_the_permalink();
-			$return_value[$count]['image'] = get_the_post_thumbnail_url(get_the_ID());
-			$return_value[$count]['content'] = wp_trim_words(get_the_content(), 55, false);
-			$return_value[$count]['date'] = get_samadhannews_convert_to_nepali_date(get_the_time('Y-m-d'));
-			$count++;
-		}
-
-		$return = array();
-		$return['data'] = $return_value;
-		$return['offset'] = $offset;
-		// $return['catg-slug'] = $catg_slug;
-		echo json_encode($return);
-		wp_die();
+	$count = 1;
+	while ($the_query->have_posts()) {
+		$the_query->the_post();
+		$return_value[$count]['title']  = wp_trim_words(get_the_title(), 5, false);
+		$return_value[$count]['permalink'] = get_the_permalink();
+		$return_value[$count]['image'] = get_the_post_thumbnail_url(get_the_ID());
+		$return_value[$count]['content'] = wp_trim_words(get_the_content(),25,false);
+		$return_value[$count]['date'] = get_samadhannews_convert_to_nepali_date(get_the_time('Y-m-d'));
+		$count++;
 	}
+
+	$return = array();
+	$return['data'] = $return_value;
+	$return['offset'] = $offset;
+	echo json_encode($return);
+	wp_die();
+}

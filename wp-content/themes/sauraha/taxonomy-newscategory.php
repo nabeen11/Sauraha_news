@@ -33,7 +33,7 @@ $cat_title = single_cat_title('', false);
                                     <div class="news-info">
                                         <span><?php samadhannews_convert_to_nepali_date(get_the_time('Y-m-d')); ?></span>
                                         <h3><a href="<?php the_permalink(); ?>"><?php echo wp_trim_words(get_the_title(),6,false); ?></a></h3>
-                                        <p><?php echo wp_trim_words(get_the_content(), 55, false) ?>...</p>
+                                        <p><?php echo wp_trim_words(get_the_content(),25,false); ?></p>
                                     </div>
                                 </div>
                             </div>
@@ -101,12 +101,7 @@ $cat_title = single_cat_title('', false);
 
                     </div><!-- tab-box close -->
                 </div><!-- news-categort-tab close -->
-                <div class="advertisement-wrapper bottom-gap">
-                    <a href="#"><img src="<?php echo esc_url(get_template_directory_uri());?>/images/side-news-add-270.jpg" alt=""></a>
-                </div>
-                <div class="advertisement-wrapper">
-                    <a href="#"><img src="<?php echo esc_url(get_template_directory_uri());?>/images/side-news-add-270.jpg" alt=""></a>
-                </div>
+                <?php innerpage('inner_sidebar_ads'); ?>
             </div>
         </div>
     </div>

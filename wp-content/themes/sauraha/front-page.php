@@ -147,29 +147,15 @@ get_header(); ?>
                         </div><!-- tab-box close -->
                     </div><!-- news-categort-tab close -->
                 </div>
-                <div class="col-md-3 col-sm-3 col-xs-12">
-                    <div class="advertisement-wrapper bottom-gap">
-                        <a href="#"><img src="<?php echo esc_url(get_template_directory_uri()); ?>/images/side-news-add-270.jpg" alt="" /></a>
-                    </div>
-                    <div class="advertisement-wrapper bottom-gap">
-                        <a href="#"><img src="<?php echo esc_url(get_template_directory_uri()); ?>/images/side-news-add-270.jpg" alt="" /></a>
-                    </div>
-                    <div class="advertisement-wrapper">
-                        <a href="#"><img src="<?php echo esc_url(get_template_directory_uri()); ?>/images/side-news-add-270.jpg" alt="" /></a>
-                    </div>
-                </div>
+                <?php adssidebytabs('ads_sideby_tabs') ?>
             </div>
         </div>
     </div>
 </section>
+<?php
+showadsaftertabs('ads_below_tabs');
+?>
 
-<section class="banner">
-    <div class="container">
-        <div class="advertisement-wrapper">
-            <a href="#"><img src="<?php echo esc_url(get_template_directory_uri()); ?>/images/banner-add-1170.jpg" alt="" /></a>
-        </div>
-    </div>
-</section>
 
 <?php
 $terms = get_terms(array('taxonomy' => 'newscategory', 'meta_key' => '_first_news_template', 'meta_value' => 1));
@@ -222,8 +208,6 @@ $terms = get_terms(array('taxonomy' => 'newscategory', 'meta_key' => '_first_new
                                     }
                                     $counter++;
                                 }
-
-                                //  }
                                 wp_reset_postdata();
                                 ?>
 
@@ -234,39 +218,23 @@ $terms = get_terms(array('taxonomy' => 'newscategory', 'meta_key' => '_first_new
                         <div class="chitwan-news-list">
                             <ul>
                                 <?php
-                                // $counter = 3;
                                 while ($the_query->have_posts()) {
                                     $the_query->the_post();
-                                    // if($counter <10){
-
-
                                 ?>
                                     <li><a href="<?php the_permalink(); ?>"><?php echo get_the_title(); ?></a></li>
                                 <?php } ?>
                             </ul>
                         </div>
                     </div>
-                    <div class="col-md-3 col-sm-3 col-xs-12">
-                        <div class="advertisement-wrapper bottom-gap">
-                            <a href="#"><img src="<?php echo esc_url(get_template_directory_uri()); ?>/images/side-news-add-270.jpg" alt="" /></a>
-                        </div>
-                        <div class="advertisement-wrapper">
-                            <a href="#"><img src="<?php echo esc_url(get_template_directory_uri()); ?>/images/side-news-add-270.jpg" alt="" /></a>
-                        </div>
-                    </div>
+                    <?php adssidebyfirsttemplate('ads_sideby_first_template') ?>
                 </div>
             </div>
-        <?php } ?>
     </div>
+<?php } ?>
+</div>
 </section>
 
-<section class="banner">
-    <div class="container">
-        <div class="advertisement-wrapper">
-            <a href="#"><img src="<?php echo esc_url(get_template_directory_uri()); ?>/images/banner-add-1170.jpg" alt="" /></a>
-        </div>
-    </div>
-</section>
+<?php showadsbelowfirsttemplate('ads_below_first_template') ?>
 <?php
 $terms = get_terms(array('taxonomy' => 'newscategory', 'meta_key' => '_second_news_template', 'meta_value' => 1));
 ?>
@@ -353,25 +321,12 @@ $terms = get_terms(array('taxonomy' => 'newscategory', 'meta_key' => '_second_ne
                     </div>
                 <?php } ?>
             </div>
-            <div class="col-md-2 col-sm-2 col-xs-12">
-                <div class="advertisement-wrapper bottom-gap">
-                    <a href="#"><img src="<?php echo esc_url(get_template_directory_uri()); ?>/images/side-news-add-170.jpg" alt="" /></a>
-                </div>
-                <div class="advertisement-wrapper">
-                    <a href="#"><img src="<?php echo esc_url(get_template_directory_uri()); ?>/images/side-news-add-170.jpg" alt="" /></a>
-                </div>
-            </div>
+            <?php adssidebythirdtemplate('ads_sideby_third_template') ?>
         </div>
     </div>
 </section>
 
-<section class="banner">
-    <div class="container">
-        <div class="advertisement-wrapper">
-            <a href="#"><img src="<?php echo esc_url(get_template_directory_uri()); ?>/images/banner-add-1170.jpg" alt="" /></a>
-        </div>
-    </div>
-</section>
+<?php adsbelowthirdtemplate('ads_below_third_template') ?>
 
 <section class="different-news-category">
     <div class="container">
@@ -502,115 +457,78 @@ $terms = get_terms(array('taxonomy' => 'newscategory', 'meta_key' => '_second_ne
     </div>
 </section>
 
-<section class="avertisement-row">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-4 col-sm-6 col-xs-12">
-                <div class="advertisement-wrapper bottom-gap">
-                    <a href="#"><img src="<?php echo esc_url(get_template_directory_uri()); ?>/images/side-news-add-370.jpg" alt="" /></a>
-                </div>
-            </div>
-            <div class="col-md-4 col-sm-6 col-xs-12">
-                <div class="advertisement-wrapper bottom-gap">
-                    <a href="#"><img src="<?php echo esc_url(get_template_directory_uri()); ?>/images/side-news-add-370.jpg" alt="" /></a>
-                </div>
-            </div>
-            <div class="col-md-4 col-sm-6 col-xs-12">
-                <div class="advertisement-wrapper">
-                    <a href="#"><img src="<?php echo esc_url(get_template_directory_uri()); ?>/images/side-news-add-370.jpg" alt="" /></a>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+<?php adsabovevideo('ads_above_video') ?>
 
-<section class="photo-feature-section">
-    <div class="container">
-        <div class="section-title">
-            <h2>भिडियो</h2>
-            <a href="<?php echo get_term_link($term) ?>" class="see-all">सबै हेर्नुहोस</a>
-        </div>
-        <div class="photo-feature-inner">
-            <div class="row">
-                <div class="col-md-7 col-sm-7 col-xs-12">
-                    <div class="video-section">
-                        <div class="video-frame" style="background-image: url('<?php echo esc_url(get_template_directory_uri()); ?>/images/news-670.jpg')">
-                            <div class="youtube-icon"></div>
-                            <div class="shadow"></div>
-                        </div>
-                        <h3><a href="#">सगरमाथा आधारशिविर र अन्नपूर्ण पदमार्ग ‘फ्रि वाइफाई जोन' !</a></h3>
-                    </div>
-                </div>
-                <div class="col-md-5 col-sm-5 col-xs-12">
-                    <div class="video-list-wrapper">
-                        <div class="video-list-single">
-                            <div class="row">
-                                <div class="col-xs-4 col-sm-4 col-md-4 nopad-rt">
-                                    <div class="video-list-img-wrap">
-                                        <a href="#">
-                                            <fig class="video-list-img" style="background-image: url('<?php echo esc_url(get_template_directory_uri()); ?>/images/news-170.jpg');">
-                                                <div class="shadow"></div>
-                                            </fig>
-                                        </a>
+<?php
+// function getVideo()
+// {
+$args = array('post_type' => 'video', 'posts_per_page' => 4);
+$video = new WP_Query($args);
+if ($video->have_posts()) {
+?>
+    <section class="photo-feature-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>भिडियो</h2>
+                <a href="#" class="see-all">सबै हेर्नुहोस</a>
+            </div>
+            <div class="photo-feature-inner">
+                <div class="row">
+                    <?php
+                    $i = 0;
+                    while ($video->have_posts()) {
+                        $video->the_post();
+                        if ($i < 1) { ?>
+                            <div class="col-md-7 col-sm-7 col-xs-12">
+                                <div class="video-section">
+                                    <div class="video-frame">
+                                        <iframe id="bussinessplus-video" height="100%" width="100%" src="https://www.youtube.com/embed/<?php echo get_post_meta(get_the_id(), '_videourl', true); ?>" allow=""></iframe>
                                     </div>
-                                </div>
-                                <div class="col-xs-8 col-sm-8 col-md-8">
-                                    <div class="video-list-content">
-                                        <h3><a href="#">शाली नदीबाट खाली खुट्टा हिँडेरै चाँगुनारायण पुगे माधवनारायणका ब्रतालु</a></h3>
-                                    </div>
+                                    <h3><a href="#"><?php echo get_the_title(); ?></a></h3>
                                 </div>
                             </div>
-                        </div>
-                        <div class="video-list-single">
-                            <div class="row">
-                                <div class="col-xs-4 col-sm-4 col-md-4 nopad-rt">
-                                    <div class="video-list-img-wrap">
-                                        <a href="#">
-                                            <fig class="video-list-img" style="background-image: url('<?php echo esc_url(get_template_directory_uri()); ?>/images/news-170.jpg');">
-                                                <div class="shadow"></div>
-                                            </fig>
-                                        </a>
+                            <div class="col-md-5 col-sm-5 col-xs-12">
+                            <?php
+                        } else { ?>
+                                <div class="video-list-wrapper">
+                                    <div class="video-list-single">
+                                        <div class="row">
+                                            <div class="col-xs-4 col-sm-4 col-md-4 nopad-rt">
+                                                <div class="video-list-img-wrap">
+                                                    <fig class="video-list-img" style="background-image: url('<?php echo get_the_post_thumbnail_url(get_the_ID()); ?>');">
+                                                        <a href="#" class="video-list" data-id="<?php echo get_post_meta(get_the_id(), '_videourl', true); ?>"><i class="fa fa-youtube-play" aria-hidden="true"></i></a>
+                                                        <div id="playing"></div>
+                                                        <div class="shadow"></div>
+                                                    </fig>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-8 col-sm-8 col-md-8">
+                                                <div class="video-list-content">
+                                                    <h3><a href="<?php the_permalink(); ?>"><?php echo get_the_title(); ?></a></h3>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-xs-8 col-sm-8 col-md-8">
-                                    <div class="video-list-content">
-                                        <h3><a href="#">कोशी पहाडी रुटमा चल्ने यात्रुबाहक बस चलेनन्, यात्रुको विचल्ली</a></h3>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="video-list-single">
-                            <div class="row">
-                                <div class="col-xs-4 col-sm-4 col-md-4 nopad-rt">
-                                    <div class="video-list-img-wrap">
-                                        <a href="#">
-                                            <fig class="video-list-img" style="background-image: url('<?php echo esc_url(get_template_directory_uri()); ?>/images/news-170.jpg');">
-                                                <div class="shadow"></div>
-                                            </fig>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="col-xs-8 col-sm-8 col-md-8">
-                                    <div class="video-list-content">
-                                        <h3><a href="#">संविधान संशोधन नभई चुनाव हुन्न: डा. भट्टराई</a></h3>
-                                    </div>
+                            <?php
+                        }
+                        $i++;
+                    }
+                    wp_reset_postdata(); //end of while 
+                            ?>
+
                                 </div>
                             </div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
+<?php
+}
+// }
+?>
 
-<section class="banner">
-    <div class="container">
-        <div class="advertisement-wrapper">
-            <a href="#"><img src="<?php echo esc_url(get_template_directory_uri()); ?>/images/banner-add-1170.jpg" alt="" /></a>
-        </div>
-    </div>
-</section>
+<?php adsbelowvideo('ads_below_video') ?>
 
 <section class="different-news-category">
     <div class="container">
@@ -741,27 +659,7 @@ $terms = get_terms(array('taxonomy' => 'newscategory', 'meta_key' => '_second_ne
     </div>
 </section>
 
-<section class="avertisement-row">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-4 col-sm-6 col-xs-12">
-                <div class="advertisement-wrapper bottom-gap">
-                    <a href="#"><img src="<?php echo esc_url(get_template_directory_uri()); ?>/images/side-news-add-370.jpg" alt="" /></a>
-                </div>
-            </div>
-            <div class="col-md-4 col-sm-6 col-xs-12">
-                <div class="advertisement-wrapper bottom-gap">
-                    <a href="#"><img src="<?php echo esc_url(get_template_directory_uri()); ?>/images/side-news-add-370.jpg" alt="" /></a>
-                </div>
-            </div>
-            <div class="col-md-4 col-sm-6 col-xs-12">
-                <div class="advertisement-wrapper">
-                    <a href="#"><img src="<?php echo esc_url(get_template_directory_uri()); ?>/images/side-news-add-370.jpg" alt="" /></a>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+<?php adsbelowseventhtempalte('ads_below_seventh-_template'); ?>
 
 <section class="different-news-category">
     <div class="container">
@@ -850,23 +748,12 @@ $terms = get_terms(array('taxonomy' => 'newscategory', 'meta_key' => '_second_ne
                     </div>
                 <?php } ?>
             </div>
-
-            <div class="col-md-4 col-sm-6 col-xs-12">
-                <div class="advertisement-wrapper">
-                    <img src="<?php echo esc_url(get_template_directory_uri()); ?>/images/news-add-370.jpg" alt="" />
-                </div>
-            </div>
+            <?php adssidebyeleventhtemplate('ads_sideby_eleventh_template'); ?>
         </div>
     </div>
 </section>
 
-<section class="banner">
-    <div class="container">
-        <div class="advertisement-wrapper">
-            <a href="#"><img src="<?php echo esc_url(get_template_directory_uri()); ?>/images/banner-add-1170.jpg" alt="" /></a>
-        </div>
-    </div>
-</section>
+<?php adsabovegallery('ads_above_gallery') ?>
 <?php
 $args = array('post_type' => 'gallery', 'posts_per_page' => 8);
 $the_query = new WP_Query($args);
@@ -908,7 +795,7 @@ if ($the_query->have_posts()) {
 
                         <ul id="entertainmnet-news-slider" class="entertainmnet-news-slider">
                             <?php $args = array(
-                                'post_type' => 'news', 'posts_per_page' => 4,
+                                'post_type' => 'news',
                                 'tax_query' => array(
                                     array(
                                         'taxonomy' => 'newscategory',
@@ -918,6 +805,7 @@ if ($the_query->have_posts()) {
                                 )
                             );
                             $the_query = new WP_Query($args);
+                            $counter = 0;
                             while ($the_query->have_posts()) {
                                 $the_query->the_post();
                             ?>
@@ -927,7 +815,14 @@ if ($the_query->have_posts()) {
                                     </a>
                                     <h3><a href="<?php the_permalink(); ?>"><?php echo get_the_title(); ?></a></h3>
                                 </li>
-                            <?php } ?>
+                            <?php
+                                if ($counter == 5) {
+                                    break;
+                                }
+                                $counter++;
+                            }
+                            wp_reset_postdata();
+                            ?>
                         </ul>
 
                     </div>

@@ -11,6 +11,21 @@
 
 ?>
 
+<?php
+
+$address = myprefix_get_theme_option('address');
+$telephone = myprefix_get_theme_option('telephone');
+$fax = myprefix_get_theme_option('fax');
+$email = myprefix_get_theme_option('email');
+
+$facebook = myprefix_get_theme_option('facebook');
+$twitter = myprefix_get_theme_option('twitter');
+$youtube = myprefix_get_theme_option('youtube');
+
+// $office_time = myprefix_get_theme_option('office_time');
+// $office_day = myprefix_get_theme_option('office_day');
+// $regd_num = myprefix_get_theme_option('regd_num');
+?>
 <footer>
         <div class="footer-top">
             <div class="container">
@@ -43,19 +58,19 @@
                         <div class="col-md-3 col-sm-6 col-xs-12">
                             <div class="footer-content">
                                 <h2>Contact Address</h2>
-                                <p>Teku, Kathmandu Nepal 44601</p>
-                                <p>Phone: 01-400000</p>
-                                <p>Email: info@saurahaonline.com</p>
-                                <p>Fax: 01-000000</p>
+                                <p><?php echo $address; ?></p>
+                                <p>Phone: <?php echo $telephone; ?></p>
+                                <p>Email: <?php echo $email; ?></p>
+                                <p>Fax: <?php echo $fax; ?></p>
                             </div>
                         </div>
                         <div class="col-md-3 col-sm-6 col-xs-12">
                             <div class="footer-content">
                                 <h2>Get Connected</h2>
                                 <ul class="social-link">
-                                    <li><a href="#" class="facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                                    <li><a href="#" class="twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                                    <li><a href="#" class="youtube"><i class="fa fa-youtube" aria-hidden="true"></i></a></li>
+                                    <li><a href="<?php echo $facebook; ?>" target="_blank" class="facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                                    <li><a href="<?php echo $twitter; ?>" target="_blank" class="twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                                    <li><a href="<?php echo $youtube; ?>" target="_blank" class="youtube"><i class="fa fa-youtube" aria-hidden="true"></i></a></li>
                                 </ul>
                             </div>
                         </div>
@@ -64,8 +79,8 @@
                                 <h2>Advertise with us</h2>
                                 <p>You can advertise with us and can know all the details in below link:</p>
                                 <span><a href="#">Advertise Detail Link</a></span>
-                                <p>Phone: +977-01-000000</p>
-                                <p>Email: info@saurahaonline.com</p>
+                                <p>Phone: <?php echo $telephone; ?></p>
+                                <p>Email: <?php echo $email; ?></p>
                             </div>
                         </div>
                         <div class="col-md-3 col-sm-6 col-xs-12">
@@ -91,6 +106,7 @@
     <script type="text/javascript" src="<?php echo esc_url(get_template_directory_uri()); ?>/js/jquery.bxslider.min.js"></script>
     <script type="text/javascript" src="<?php echo esc_url(get_template_directory_uri()); ?>/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="<?php echo esc_url(get_template_directory_uri()); ?>/js/custom.js"></script> 
+    <script type="text/javascript" src="<?php echo esc_url(get_template_directory_uri()); ?>/js/videoplay.js"></script> 
 
 <?php wp_footer(); ?>
 

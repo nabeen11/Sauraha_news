@@ -54,12 +54,7 @@ $post_content = apply_filters('the_content', get_the_content());
                         <?php } ?>
                     </div>
                 <?php } ?>
-                <div class="advertisement-wrapper bottom-gap">
-                    <a href="#"><img src="<?php echo esc_url(get_template_directory_uri()); ?>/images/side-news-add-270.jpg" alt=""></a>
-                </div>
-                <div class="advertisement-wrapper">
-                    <a href="#"><img src="<?php echo esc_url(get_template_directory_uri()); ?>/images/side-news-add-270.jpg" alt=""></a>
-                </div>
+                <?php singlepage('singlepage_sidebar_ads'); ?>
             </div>
         </div>
     </div>
