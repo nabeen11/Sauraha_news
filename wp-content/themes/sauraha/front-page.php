@@ -478,13 +478,15 @@ if ($video->have_posts()) {
                     $i = 0;
                     while ($video->have_posts()) {
                         $video->the_post();
+                        $vid= get_post_meta(get_the_ID(),'_videourl',true);
+                        $v = changeYoutubeToEmbedVideo($vid);
                         if ($i < 1) { ?>
                             <div class="col-md-7 col-sm-7 col-xs-12">
                                 <div class="video-section">
                                     <div class="video-frame">
-                                        <iframe id="bussinessplus-video" height="100%" width="100%" src="https://www.youtube.com/embed/<?php echo get_post_meta(get_the_id(), '_videourl', true); ?>" allow=""></iframe>
+                                        <iframe id="bussinessplus-video" height="100%" width="100%" src="<?php echo $v; ?>" allow=""></iframe>
                                     </div>
-                                    <h3><a href="#"><?php echo get_the_title(); ?></a></h3>
+                                    <!-- <h3><a href="#"><?php echo get_the_title(); ?></a></h3> -->
                                 </div>
                             </div>
                             <div class="col-md-5 col-sm-5 col-xs-12">
@@ -496,7 +498,7 @@ if ($video->have_posts()) {
                                             <div class="col-xs-4 col-sm-4 col-md-4 nopad-rt">
                                                 <div class="video-list-img-wrap">
                                                     <fig class="video-list-img" style="background-image: url('<?php echo get_the_post_thumbnail_url(get_the_ID()); ?>');">
-                                                        <a href="#" class="video-list" data-id="<?php echo get_post_meta(get_the_id(), '_videourl', true); ?>"><i class="fa fa-youtube-play" aria-hidden="true"></i></a>
+                                                        
                                                         <div id="playing"></div>
                                                         <div class="shadow"></div>
                                                     </fig>
@@ -505,7 +507,9 @@ if ($video->have_posts()) {
                                             </div>
                                             <div class="col-xs-8 col-sm-8 col-md-8">
                                                 <div class="video-list-content">
-                                                    <h3><a href="<?php the_permalink(); ?>"><?php echo get_the_title(); ?></a></h3>
+                                                    <h3>
+                                                    <a href="#" class="video-list" data-id="<?php echo get_post_meta(get_the_id(), '_videourl', true); ?>"><?php echo get_the_title(); ?><i class="fa fa-youtube-play" aria-hidden="true"></i></a>
+                                                    <!-- <a href=""><?php echo get_the_title(); ?></a></h3> -->
                                                 </div>
                                             </div>
                                         </div>

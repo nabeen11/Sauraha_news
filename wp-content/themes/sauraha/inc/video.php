@@ -121,4 +121,10 @@ function videourl_textbox_meta_save_function($post_id)
 add_action('save_post', 'videourl_textbox_meta_save_function');
 
 
+
+function changeYoutubeToEmbedVideo($url){
+    preg_match("/^(?:http(?:s)?:\/\/)?(?:www\.)?(?:m\.)?(?:youtu\.be\/|youtube\.com\/(?:(?:watch)?\?(?:.*&)?v(?:i)?=|(?:embed|v|vi|user)\/))([^\?&\"'>]+)/", $url, $matches);
+    return "https://www.youtube.com/embed/".$matches[1];
+}
+
 ?>
