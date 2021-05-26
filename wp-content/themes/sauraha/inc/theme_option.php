@@ -126,6 +126,16 @@ if ( ! class_exists( 'WPEX_Theme_Options' ) ) {
 				} else {
 					unset( $options['twitter'] ); // Remove from options if empty
 				}
+				if ( ! empty( $options['seeall'] ) ) {
+					$options['seeall'] = sanitize_text_field( $options['seeall'] );
+				} else {
+					unset( $options['seeall'] ); // Remove from options if empty
+				}
+				if ( ! empty( $options['video'] ) ) {
+					$options['video'] = sanitize_text_field( $options['video'] );
+				} else {
+					unset( $options['video'] ); // Remove from options if empty
+				}
 
 			}
 
@@ -200,6 +210,20 @@ if ( ! class_exists( 'WPEX_Theme_Options' ) ) {
 							<td>
 								<?php $value = self::get_theme_option( 'twitter' ); ?>
 								<input type="text" name="theme_options[twitter]" value="<?php echo esc_attr( $value ); ?>">
+							</td>
+						</tr>
+						<tr valign="top">
+							<th scope="row"><?php esc_html_e( 'See all', 'text-domain' ); ?></th>
+							<td>
+								<?php $value = self::get_theme_option( 'seeall' ); ?>
+								<input type="text" name="theme_options[seeall]" value="<?php echo esc_attr( $value ); ?>">
+							</td>
+						</tr>
+						<tr valign="top">
+							<th scope="row"><?php esc_html_e( 'Video', 'text-domain' ); ?></th>
+							<td>
+								<?php $value = self::get_theme_option( 'video' ); ?>
+								<input type="text" name="theme_options[video]" value="<?php echo esc_attr( $value ); ?>">
 							</td>
 						</tr>
 					</table>

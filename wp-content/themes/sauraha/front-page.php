@@ -1,6 +1,10 @@
 <?php
 get_header(); ?>
 
+<?php
+$seeall = myprefix_get_theme_option('seeall');
+$videos = myprefix_get_theme_option('video');
+?>
 <section class="trending">
     <div class="container">
         <ul>
@@ -168,7 +172,7 @@ $terms = get_terms(array('taxonomy' => 'newscategory', 'meta_key' => '_first_new
         ?>
             <div class="section-title">
                 <h2><?php echo $term->name ?></h2>
-                <a href="<?php echo get_term_link($term) ?>" class="see-all">सबै हेर्नुहोस</a>
+                <a href="<?php echo get_term_link($term) ?>" class="see-all"><?php echo $seeall; ?></a>
             </div>
             <div class="chitwan-news-inner">
                 <div class="row">
@@ -248,7 +252,7 @@ $terms = get_terms(array('taxonomy' => 'newscategory', 'meta_key' => '_second_ne
                     <div class="tourism-news-list">
                         <div class="section-title">
                             <h2><?php echo $term->name ?></h2>
-                            <a href="<?php echo get_term_link($term) ?>" class="see-all">सबै हेर्नुहोस</a>
+                            <a href="<?php echo get_term_link($term) ?>" class="see-all"><?php echo $seeall; ?></a>
                         </div>
 
                         <?php $args = array(
@@ -290,7 +294,7 @@ $terms = get_terms(array('taxonomy' => 'newscategory', 'meta_key' => '_second_ne
                     <div class="agriculture-news-list">
                         <div class="section-title">
                             <h2><?php echo $term->name ?></h2>
-                            <a href="<?php echo get_term_link($term) ?>" class="see-all">सबै हेर्नुहोस</a>
+                            <a href="<?php echo get_term_link($term) ?>" class="see-all"><?php echo $seeall; ?></a>
                         </div>
                         <?php $args = array(
                             'post_type' => 'news', 'posts_per_page' => 6,
@@ -340,7 +344,7 @@ $terms = get_terms(array('taxonomy' => 'newscategory', 'meta_key' => '_second_ne
                     <div class="education-news-wrapper">
                         <div class="section-title">
                             <h2><?php echo $term->name ?></h2>
-                            <a href="<?php echo get_term_link($term) ?>" class="see-all">सबै हेर्नुहोस</a>
+                            <a href="<?php echo get_term_link($term) ?>" class="see-all"><?php echo $seeall; ?></a>
                         </div>
                         <div class="education-news-list">
                             <?php $args = array(
@@ -382,7 +386,7 @@ $terms = get_terms(array('taxonomy' => 'newscategory', 'meta_key' => '_second_ne
                     <div class="agriculture-news-list">
                         <div class="section-title">
                             <h2><?php echo $term->name ?></h2>
-                            <a href="<?php echo get_term_link($term) ?>" class="see-all">सबै हेर्नुहोस</a>
+                            <a href="<?php echo get_term_link($term) ?>" class="see-all"><?php echo $seeall; ?></a>
                         </div>
                         <?php $args = array(
                             'post_type' => 'news', 'posts_per_page' => 4,
@@ -422,7 +426,7 @@ $terms = get_terms(array('taxonomy' => 'newscategory', 'meta_key' => '_second_ne
                     <div class="agriculture-news-list">
                         <div class="section-title">
                             <h2><?php echo $term->name ?></h2>
-                            <a href="<?php echo get_term_link($term) ?>" class="see-all">सबै हेर्नुहोस</a>
+                            <a href="<?php echo get_term_link($term) ?>" class="see-all"><?php echo $seeall; ?></a>
                         </div>
                         <?php $args = array(
                             'post_type' => 'news', 'posts_per_page' => 4,
@@ -469,8 +473,8 @@ if ($video->have_posts()) {
     <section class="photo-feature-section">
         <div class="container">
             <div class="section-title">
-                <h2>भिडियो</h2>
-                <a href="#" class="see-all">सबै हेर्नुहोस</a>
+                <h2><?php echo $videos; ?></h2>
+                <a href="#" class="see-all"><?php echo $seeall; ?></a>
             </div>
             <div class="photo-feature-inner">
                 <div class="row">
@@ -546,7 +550,7 @@ if ($video->have_posts()) {
                     <div class="education-news-wrapper">
                         <div class="section-title">
                             <h2><?php echo $term->name ?></h2>
-                            <a href="<?php echo get_term_link($term); ?>" class="see-all">सबै हेर्नुहोस</a>
+                            <a href="<?php echo get_term_link($term); ?>" class="see-all"><?php echo $seeall; ?></a>
                         </div>
                         <div class="education-news-list">
                             <?php $args = array(
@@ -588,7 +592,7 @@ if ($video->have_posts()) {
                     <div class="agriculture-news-list">
                         <div class="section-title">
                             <h2><?php echo $term->name ?></h2>
-                            <a href="<?php echo get_term_link($term) ?>" class="see-all">सबै हेर्नुहोस</a>
+                            <a href="<?php echo get_term_link($term) ?>" class="see-all"><?php echo $seeall; ?></a>
                         </div>
                         <?php $args = array(
                             'post_type' => 'news', 'posts_per_page' => 3,
@@ -628,7 +632,7 @@ if ($video->have_posts()) {
                     <div class="agriculture-news-list">
                         <div class="section-title">
                             <h2><?php echo $term->name ?></h2>
-                            <a href="<?php echo get_term_link($term) ?>" class="see-all">सबै हेर्नुहोस</a>
+                            <a href="<?php echo get_term_link($term) ?>" class="see-all"><?php echo $seeall; ?></a>
                         </div>
                         <?php $args = array(
                             'post_type' => 'news', 'posts_per_page' => 3,
@@ -677,7 +681,7 @@ if ($video->have_posts()) {
                     <div class="education-news-wrapper">
                         <div class="section-title">
                             <h2><?php echo $term->name ?></h2>
-                            <a href="<?php echo get_term_link($term) ?>" class="see-all">सबै हेर्नुहोस</a>
+                            <a href="<?php echo get_term_link($term) ?>" class="see-all"><?php echo $seeall; ?></a>
                         </div>
                         <div class="education-news-list">
                             <?php $args = array(
@@ -719,7 +723,7 @@ if ($video->have_posts()) {
                     <div class="education-news-wrapper">
                         <div class="section-title">
                             <h2><?php echo $term->name ?></h2>
-                            <a href="<?php echo get_term_link($term) ?>" class="see-all">सबै हेर्नुहोस</a>
+                            <a href="<?php echo get_term_link($term) ?>" class="see-all"><?php echo $seeall; ?></a>
                         </div>
                         <div class="education-news-list">
                             <?php $args = array(
@@ -767,7 +771,7 @@ if ($the_query->have_posts()) {
         <div class="container">
             <div class="section-title">
                 <h2>फोटो-फिचर</h2>
-                <a href="<?php the_permalink(); ?>" class="see-all">सबै हेर्नुहोस</a>
+                <a href="<?php the_permalink(); ?>" class="see-all"><?php echo $seeall; ?></a>
             </div>
             <div class="model-gallery-wrapper">
                 <ul id="model-gallery-carousel" class="model-gallery-carousel">
@@ -791,7 +795,7 @@ if ($the_query->have_posts()) {
         <div class="container">
             <div class="section-title">
                 <h2><?php echo $term->name ?></h2>
-                <a href="<?php echo get_term_link($term) ?>" class="see-all">सबै हेर्नुहोस</a>
+                <a href="<?php echo get_term_link($term) ?>" class="see-all"><?php echo $seeall; ?></a>
             </div>
             <div class="row">
                 <div class="col-md-6 col-sm-6 col-xs-12">
