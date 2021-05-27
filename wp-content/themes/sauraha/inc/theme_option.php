@@ -136,6 +136,11 @@ if ( ! class_exists( 'WPEX_Theme_Options' ) ) {
 				} else {
 					unset( $options['video'] ); // Remove from options if empty
 				}
+				if ( ! empty( $options['photofeature'] ) ) {
+					$options['photofeature'] = sanitize_text_field( $options['photofeature'] );
+				} else {
+					unset( $options['photofeature'] ); // Remove from options if empty
+				}
 
 			}
 
@@ -224,6 +229,13 @@ if ( ! class_exists( 'WPEX_Theme_Options' ) ) {
 							<td>
 								<?php $value = self::get_theme_option( 'video' ); ?>
 								<input type="text" name="theme_options[video]" value="<?php echo esc_attr( $value ); ?>">
+							</td>
+						</tr>
+						<tr valign="top">
+							<th scope="row"><?php esc_html_e( 'Photo Feature', 'text-domain' ); ?></th>
+							<td>
+								<?php $value = self::get_theme_option( 'photofeature' ); ?>
+								<input type="text" name="theme_options[photofeature]" value="<?php echo esc_attr( $value ); ?>">
 							</td>
 						</tr>
 					</table>

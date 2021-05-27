@@ -4,6 +4,7 @@ get_header(); ?>
 <?php
 $seeall = myprefix_get_theme_option('seeall');
 $videos = myprefix_get_theme_option('video');
+$gallery = myprefix_get_theme_option('photofeature')
 ?>
 <section class="trending">
     <div class="container">
@@ -770,7 +771,7 @@ if ($the_query->have_posts()) {
     <section class="photo-gallery">
         <div class="container">
             <div class="section-title">
-                <h2>फोटो-फिचर</h2>
+                <h2><?php echo $gallery; ?></h2>
                 <a href="<?php the_permalink(); ?>" class="see-all"><?php echo $seeall; ?></a>
             </div>
             <div class="model-gallery-wrapper">
